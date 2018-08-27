@@ -1,0 +1,135 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:500|Play:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style>
+        .boxcalc {
+            background: -webkit-linear-gradient(90deg, #83e4a8 80%, #0b803c 100%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: larger;
+        }
+
+        .titulo {
+            font-family: 'Play', sans-serif;
+        }
+
+        .btn {
+            margin: 3px;
+        }
+
+        .calculadora {
+            font-family: 'Play', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .Aligner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Aligner-item {
+            max-width: 50%;
+        }
+
+        .Aligner-item--top {
+            align-self: flex-start;
+        }
+
+        .Aligner-item--bottom {
+            align-self: flex-end;
+        }
+
+        .Demo {
+            width: 100%;
+            padding: 0.8em 1em 0.8em;
+            background: -webkit-linear-gradient(45deg, #748bc9 10%, #8f1278 90%);
+            border: black;
+            border-radius: 5px
+        }
+
+        .Demo:after {
+            content: '\00a0';
+            display: block;
+            margin-top: 1em;
+            height: 0;
+            visibility: hidden
+        }
+
+        .Demo--spaced {
+            margin-bottom: 1.5em
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="calculadora Demo">
+            <div class="Aligner-item Aligner-item--fixed">
+                <div class="text-center titulo">
+                    <h1>Calculadora</h1>
+                </div>
+                <div>
+                    <label id="rastropan" class="form-control  text-right boxcalc"></label>
+                    <label id="pantalla" class="form-control  text-right boxcalc">0</label>
+                </div>
+                <div class="btn-group-sm">
+                    <button onclick="memoOperacion('M+')" type="button" class="btn btn-info">M+</button>
+                    <button onclick="memoOperacion('M-');limpiarNum()" type="button" class="btn btn-info">M-</button>
+                    <button onclick="memoOperacion('Mc')" type="button" class="btn btn-info">Mc</button>
+                    <button onclick="memoOperacion('Mr')" type="button" class="btn btn-info">Mr</button>
+                </div>
+                <div class="btn-group-lg">
+                    <button onclick="mostrarDigito(7)" type="button" class="btn btn-secondary">7</button>
+                    <button onclick="mostrarDigito(8)" type="button" class="btn btn-secondary">8</button>
+                    <button onclick="mostrarDigito(9)" type="button" class="btn btn-secondary">9</button>
+                    <button onclick="leerOperacion('-')" type="button" class="btn btn-primary">-</button>
+                    <button onclick="leerOperacion('/')" type="button" class="btn btn-primary">/</button>
+                </div>
+                <div class="btn-group-lg">
+                    <button onclick="mostrarDigito(4)" type="button" class="btn btn-secondary">4</button>
+                    <button onclick="mostrarDigito(5)" type="button" class="btn btn-secondary">5</button>
+                    <button onclick="mostrarDigito(6)" type="button" class="btn btn-secondary">6</button>
+                    <button onclick="leerOperacion('+')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="leerOperacion('*')" type="button" class="btn btn-primary">*</button>
+                </div>
+                <div class="btn-group-lg">
+                    <button onclick="mostrarDigito(1)" type="button" class="btn btn-secondary">1</button>
+                    <button onclick="mostrarDigito(2)" type="button" class="btn btn-secondary">2</button>
+                    <button onclick="mostrarDigito(3)" type="button" class="btn btn-secondary">3</button>
+                    <button onclick="hacerOperacion()" type="button" class="btn btn-primary">=</button>
+                    <button onclick="hacerPorcentaje()" type="button" class="btn btn-primary">%</button>
+                </div>
+                <div class="btn-group-lg">
+                    <button onclick="mostrarDigito(0)" type="button" class="btn btn-secondary">0</button>
+                    <button onclick="mostrarDigito('.')" type="button" class="btn btn-secondary">.</button>
+                    <button onclick="memoOperacion('±')" type="button" class="btn btn-secondary">±</button>
+                    <button onclick="limpiar()" type="button" class="btn btn-danger">C</button>
+                    <button onclick="reiniciar()" type="button" class="btn btn-danger">AC</button>
+
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <h3 class="text-center titulo">Historial</h3>
+            <ul id="log" class="list-group titulo">
+            </ul>
+        </div>
+
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type="text/javascript" src="calculadora.js"></script>
+</body>
+
+</html>
